@@ -1,5 +1,5 @@
 '''
-Mopidy Pummeluff Python module.
+Mopidy Beep Python module.
 '''
 
 import os
