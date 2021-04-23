@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 '''
-Setup script for Mopidy-Pummeluff module.
+Setup script for Mopidy-Beep module.
 '''
 
 from setuptools import setup, find_packages
@@ -15,7 +15,7 @@ setup(
     license='Apache',
     author='Hayri Bakici',
     author_email='hayri.bakici@gmail.com',
-    description='Beep is a Mopidy extension which allows you to receive auditive feedback for Mopidy events',
+    description='Beep is a Mopidy extension which allows you to control Mopidy via RFID tags',
     long_description=open('README.md').read(),
     packages=find_packages(exclude=[
         'tests',
@@ -23,12 +23,13 @@ setup(
     ]),
     zip_safe=False,
     include_package_data=True,
-    
+    setup_requires=[
+        'setuptools_scm',
+    ],
     install_requires=['setuptools'] + requirements,
-    
     entry_points={
         'mopidy.ext': [
-            'pummeluff = mopidy_pummeluff:Extension',
+            'beep = mopidy_beep:Extension',
         ],
     },
     classifiers=[

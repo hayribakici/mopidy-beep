@@ -23,20 +23,16 @@ class BeepFrontend(pykka.ThreadingActor, mopidy_core.CoreListener):
     Beep frontend which basically gives auditive feedback on mopidy events.
     '''
 
-    def __init__(self, config, core):  # pylint: disable=unused-argument
+    def __init__(self, config, core):
         super().__init__()
-        self.core         = core
+        self.core = core
 
-    def on_event(self, event):
-        LOGGER.info(f'{event}')
+    #def on_event(self, event, **kwargs):
+    #    LOGGER.info(f'{event}')
 
-    def on_start(self):
-        print()        
+    def tracklist_changed(self):
+        LOGGER.info("Playing bell sound")
+        play_sound('bell.ogg')
 
-    def on_stop(self):
-        '''
-        '''
-        print()
-    
 
 

@@ -7,9 +7,6 @@ import os
 import mopidy
 from .frontend import BeepFrontend
 
-
-
-
 class Extension(mopidy.ext.Extension):
     '''
     Mopidy Beep extension.

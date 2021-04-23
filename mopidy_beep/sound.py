@@ -11,9 +11,9 @@ from os import path, system
 
 def play_sound(sound):
     '''
-    Play sound via aplay.
+    Play sound via play.
 
     :param str sound: The name of the sound file
     '''
     file_path = path.join(path.dirname(__file__), 'sounds', sound)
-    system('aplay -q {}'.format(file_path))
+    system('play -q {}'.format(file_path))
