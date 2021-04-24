@@ -8,7 +8,6 @@ __all__ = (
 
 from os import path, system
 
-
 def play_sound(sound):
     '''
     Play sound via play.
