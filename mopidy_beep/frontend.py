@@ -31,10 +31,10 @@ class BeepFrontend(pykka.ThreadingActor, mopidy_core.CoreListener):
     #    LOGGER.info(f'{event}')
 
     def on_start(self):
-        play_sound('start.oga')
+        play_sound('start.ogg')
 
     def on_stop(self):
-        play_sound('stop.ogg')
+        play_sound('stop.oga')
 
     def tracklist_changed(self):
         play_sound('bell.ogg')
