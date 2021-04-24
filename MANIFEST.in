@@ -1,0 +1,2 @@
+recursive-include sounds *.oga
+recursive-include sounds *.ogg

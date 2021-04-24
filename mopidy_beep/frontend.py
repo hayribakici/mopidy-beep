@@ -24,14 +24,19 @@ class BeepFrontend(pykka.ThreadingActor, mopidy_core.CoreListener):
     '''
 
     def __init__(self, config, core):
-        super().__init__()
+        super(BeepFrontend, self).__init__()
         self.core = core
 
     #def on_event(self, event, **kwargs):
     #    LOGGER.info(f'{event}')
 
+    def on_start(self):
+        play_sound('start.oga')
+
+    def on_stop(self):
+        play_sound('stop.ogg')
+
     def tracklist_changed(self):
-        LOGGER.info("Playing bell sound")
         play_sound('bell.ogg')
 
 

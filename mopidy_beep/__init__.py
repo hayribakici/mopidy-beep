@@ -5,7 +5,8 @@ Mopidy Beep Python module.
 import os
 
 import mopidy
-from .frontend import BeepFrontend
+
+__version__ = '0.1'
 
 class Extension(mopidy.ext.Extension):
     '''
@@ -14,6 +15,7 @@ class Extension(mopidy.ext.Extension):
 
     dist_name = 'Mopidy-Beep'
     ext_name = 'beep'
+    version = __version__
 
     def get_default_config(self):  # pylint: disable=no-self-use
         '''
@@ -33,11 +35,19 @@ class Extension(mopidy.ext.Extension):
         schema = super(Extension, self).get_config_schema()
         return schema
 
+    def validate_environment(self):
+        # Any manual checks of the environment to fail early.
+        # Dependencies described by setup.py are checked by Mopidy, so you
+        # should not check their presence here.
+        pass
+
+
     def setup(self, registry):
         '''
         Setup the extension.
 
         :param mopidy.ext.Registry: The mopidy registry
         '''
+        from .frontend import BeepFrontend
         registry.add('frontend', BeepFrontend)
 
