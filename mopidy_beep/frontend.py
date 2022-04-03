@@ -11,6 +11,7 @@ from logging import getLogger
 import pykka
 
 from mopidy import core as mopidy_core
+from mopidy import audio as mopidy_audio
 from .sound import play_sound
 
 

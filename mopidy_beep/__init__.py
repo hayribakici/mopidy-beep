@@ -3,10 +3,9 @@ Mopidy Beep Python module.
 '''
 
 import os
-
 import mopidy
 
-__version__ = '0.1'
+__version__ =  pkg_resources.get_distribution("Mopidy-Beep").version
 
 class Extension(mopidy.ext.Extension):
     '''
@@ -48,6 +47,8 @@ class Extension(mopidy.ext.Extension):
 
         :param mopidy.ext.Registry: The mopidy registry
         '''
-        from .frontend import BeepFrontend
-        registry.add('frontend', BeepFrontend)
+        # from .frontend import BeepFrontend
+        from .backend import BeepBackend
+        # registry.add('frontend', BeepFrontend)
+        registry.add('backend', BeepBackend)
 
